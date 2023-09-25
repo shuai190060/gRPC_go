@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option  go_imports = "github.com/shuai1900/gPRC_go";
+option go_package = "github.com/shuai1900/gPRC_go";
 
 service PriceFetcher {
     rpc FetchPrice(PriceRequest) returns (PriceResponse);
