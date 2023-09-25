@@ -15,7 +15,7 @@ type APIFunc func(ctx context.Context, w http.ResponseWriter, r *http.Request) e
 func MakeAPIFunc(fn APIFunc) http.HandlerFunc {
 	ctx := context.Background()
 	return func(w http.ResponseWriter, r *http.Request) {
-		ctx = context.WithValue(ctx, "requestID", rand.Intn(1000000000))
+		ctx = context.WithValue(ctx, "requestID", rand.Intn(100000000))
 
 		if err := fn(ctx, w, r); err != nil {
 			writeJSON(w, http.StatusBadRequest, map[string]any{"error": err.Error()})
